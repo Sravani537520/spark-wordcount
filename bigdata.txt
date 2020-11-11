@@ -1,0 +1,303 @@
+The HTML Tags that Deal with Text (HTML Tutorial Chapter 2)
+by Christopher Heng, thesitewizard.com
+In this chapter of the HTML tutorial series, we will learn more about the HTML tags, entities and other paraphernalia that deal with text.
+
+If you have only just arrived at this site with the intention of learning HTML, please start at the first chapter of the tutorial. (This article you're looking at is actually chapter 2.) Those who do not know anything about creating websites should read How to Make / Create Your Own Website: The Beginner's A-Z Guide before anything else.
+
+Language and Your Website: Character Encoding, Character Sets and Content Type
+When you type some text characters into a file on your computer (any file, including things like HTML files), the characters are not saved as letters of the alphabet in the file but as a series of numbers. (It's actually more technical than that, if we go down to the electronic level, but the above loose description will do for our purposes.) For example, if you type the letter "a" into a plain text file, your editor actually saves the number 97 into the file. When you display that file, the text editor or web browser (or any other program) reads the number and interprets it as "a" and displays it as such.
+
+The problem is that 97 does not intrinsically mean "a" or any other thing on a computer. It means "a" only if the program reading it expects a text file using a particular language, encoded using a specific system that is pre-agreed by everyone in the computer world. In this system, 97 happens to mean the small letter (lowercase) "a". In a different system (or different character set in technical lingo), 97 may mean some other letter of some other alphabet.
+
+Since a web page can contain any language in the world, encoded using any character set, a web browser needs to know both the language your page uses as well as the character set it is using in order for it to display the text correctly.
+
+One way to specify the language that your web page uses is to add an attribute to the <html> tag. If you will recall from chapter 1 of this HTML tutorial, your entire web page proper is enclosed between <html> and </html>. The addition of a language attribute specifying that the content of the page is in English will result in the HTML code from the previous chapter looking like the following.
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>My First Web Page</title>
+</head>
+<body>
+<p>
+This is a sample web page from thesitewizard.com's HTML tutorial.
+</p>
+</body>
+</html>
+
+Notice that instead of a plain <html> tag, we now have <html lang="en">. I added a space after the "html" part of the tag, and added additional words. As is probably obvious to you, the attribute "lang" specifies the language the page is written in. The portion after the equals sign ("="), enclosed in quotation marks, specifies the language. Since our sample web page uses English, I have specified "en" as the language. If your page uses German, you will have to use "<html lang="de">", and if it uses French, you will need to specify "<html lang="fr">". As you probably have already noticed, you can't just specify any old language name after "lang=". You need to find out the actual code for that language. A list of language names can be found here. Remember to enclose the name in quotation marks before placing it after "lang=".
+
+Apart from the language attribute to the HTML tag, you also need to specify the character set that your web page uses. This can be done by adding a new tag into your HEAD section. If your web page uses English and only the basic English alphabet, numbers and punctuation marks, you can specify the ISO-8859-1 character set by inserting the following line into your HEAD section. (If you don't know what I mean by "inserting a line into the HEAD section", you should review chapter 1 again, where I taught you how to insert the TITLE tag into that section. The procedure is the same.)
+
+<meta http-equiv="Content-type" content="text/html;charset=ISO-8859-1">
+Alternatively, as preferred by many people, you can also specify the UTF-8 Unicode character set instead.
+
+<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+The UTF-8 character set supports all languages, including English. In fact, the ISO-8859-1 character set is just a subset of UTF-8. If you don't know which to choose, specify the UTF-8 character set. You'll have less trouble that way, especially if at some indeterminate point in the future, you suddenly decide to use some accented character or a character that does not occur in the basic English alphabet. (Remember that there are actually some words in the English language that use these accented characters.) Before you ask, many of thesitewizard.com's pages use ISO-8859-1 as its character set, but that's due to historical reasons. "Historical reasons" in this context is my way of saying that I created my site this way many years ago, when I didn't know better, and am still in the process of converting those old pages to UTF-8.
+
+There are other ways to specify your language and character set besides inserting them into your web page. For example, it is also possible to set it as a configuration option in your web server. (The web server is the computer program that your web host uses to run your website.) However, since this is an HTML tutorial, I will not deal with that method here. In any case, it's actually good practice to specify your language on your page. This way, your page will still be valid if you change web hosts and forget to configure the new server.
+
+Note that the <meta> tag does not have a closing tag.
+
+With the addition of the attribute specifying your web page's language as well as the META tag specifying the character set, your web page is now complete as a minimal web page. That is to say, it has all the minimum elements that are required on a valid web page. (That of course doesn't mean that it has what you want on your website. It simply means that the page you now have is considered a valid HTML page with all the required elements. There's obviously still a lot more to learn.)
+
+Although this is outside the scope of an HTML tutorial, after inserting the character set META tag into your document, you should also make sure that your editor saves your document in the appropriate character set. That is, if you are using the UTF-8 character set, make sure that your editor is set up to use the UTF-8 encoding. Unfortunately, how this is done varies from editor to editor, so it's difficult for me to be specific here, since there are a zillion editors around. Some editors have an "Encoding" or "Format" option in the "Save As" dialog box (which appears when you click the "Save as" line in the "File" menu) where you can select the appropriate character set. Others require you to go into their configuration options to set it there. Please do not ignore this paragraph. If you don't get your editor to save in the same encoding as you declared in the meta tag, some of the things on your web page may be displayed with the wrong characters (or with a question mark or rectangular block) in a web browser, even if it looks perfect in your editor.
+
+Reprise: The <p> Tag
+Now that we've declared the language and character set that our web page is going to use, we can start using the HTML tags that pertain to the manipulation of text.
+
+We have already met <p>, or the paragraph tag, in chapter one. If you're not already familiar with this tag, perhaps because you skipped chapter 1, please return to that chapter and read up on it. I mention this tag here only for completeness.
+
+If you remember, the <p> is used to start a new paragraph on your web page. Web browsers, when encountering the tag, usually start the text following your tag on a new line on the web page. Since <p> always starts a new paragraph, you cannot nest <p> tags inside each other. That is, if you want a new paragraph, close off the existing paragraph with </p> before using a new <p> tag.
+
+In addition, if you have carried out the experiments I mentioned in the previous chapter, you'd have noticed that if your page had other content just above your paragraph tag, browsers usually leave a blank line before starting your new paragraph. This brings us to the question of how you can place some text directly on the line beneath the current one, without leaving the blank line that you get between paragraphs when you use <p>. For example, if you are a poet, and want to publish your poetry on your page, how do you put your verses on the page without leaving huge gaps between each line? This is the function of the next tag that we're going to learn.
+
+The <br> Tag
+The <br> tag is used when you want to put what follows on a new line without actually starting a paragraph. Take a look at the following HTML code as an example. To simplify my examples from now on, I will only show the code relevant to the tags I'm explaining. That is, I won't show things like the <head> section, the <body> tags and the other tags that are understood to be on every web page. If you're not sure what these other tags are, please read chapter 1 and the section above.
+
+<p>
+Had I the heavens' embroided cloths,<br>
+Enwrought with golden and silver light,<br>
+The blue and the dim and the dark cloths<br>
+Of night and light and the half-light,<br>
+I would spread the cloths under your feet:<br>
+But I, being poor, have only my dreams;<br>
+I have spread my dreams under your feet;<br>
+Tread softly because you tread on my dreams.
+</p>
+Insert the above poem by William Butler Yeats into your web page (the one you started in chapter 1), and reload the page in your web browser to see the effect. Notice that each line in the stanza occupies its own line on the page, the way you would expect in a poem. The <br> tag, which I like to think of as being short for "line break", forces everything that follows to a new line.
+
+Notice that there is no closing tag for <br>. Since the <br> tag merely creates the end of a line, and does not signal the start of something (the way a paragraph tag does), it does not need (nor does it have) a closing tag.
+
+Page and Section Headings
+What if you wanted to put a heading on your web page, for example, to put a visible title for the above poem? HTML provides numerous tags for this purpose, namely, <h1>, <h2>, <h3>, <h4>, <h5> and <h6>.
+
+To see the tag in action, add the following line to your web page, in a blank line just above the opening <p> tag of the poem you inserted above.
+
+<h1>Cloths of Heaven, by W. B. Yeats</h1>
+Reload the page in your browser and examine the results.
+
+These tags have the following characteristics:
+
+Use the Lower-Numbered Header Tags First
+Basically, a <h1> tag signals the highest level header on a web page. Many webmasters use it to display the title of a web page. If you have divided your web page into sections, with some paragraphs containing their own title, those paragraph titles may use <h2>. If those paragraphs have sub-paragraphs, and you need to put a title to them, use <h3>. And so on.
+
+In other words, you should use the header tag with the smallest number first, before using one with a larger number. For example, all of thesitewizard.com's web pages use the <h1> tag for the title of the web page. The <h2> tag is used for the titles of each section on the page, such as the words "Page and Section Headings" you find at the beginning of this section. The titles of sub-sections within these sections use the <h3> tag. The heading "Use the Lower-Numbered Header Tags First" that you see above is enclosed within the <h3> tag pair.
+
+Put Your Header Text Within the Tag Pair
+As you will have probably observed from my example, the header tags come in pairs, like the paragraph tags. For example, the <h1> signals the start of the header text to the web browser, and the </h1> tag signals the end of it.
+
+Put the Header Outside the Paragraph Tag
+Notice that I told you to put the header tag outside the paragraph block. The header is not part of the paragraph. Header and paragraph tags are what is known in HTML as block-level tags. The browser formats the content you place within such tags in its own block. For example, each paragraph stands on its own, as a distinct block, on your web page. The header tag, likewise, places the text enclosed within it in a separate block with its own formatting (which is the topic of the next point).
+
+Appearance of the Header in Web Browsers
+Browsers typically display the text contained between header tags in a way so that it stands out in some way on the page. Most browsers do this by putting the headers in bold. The smaller numbered headers, like <h1>, are usually displayed with larger fonts. To distinguish between the smaller numbered headers and those with bigger numbers, browsers may render the larger numbered headers using smaller fonts.
+
+Before you ask, control of the appearance of the headers, like the rest of your web page, is done using Cascading Style Sheets (CSS). As such, fine-tuning of the appearance of the header tags will be only taught in the later chapters of this tutorial series, in the CSS chapters. Do not choose which header tags to use based on its current appearance, for example, don't choose a particular header level because it has the size you want. Sizes of the text and all such things can be changed later. Choose the header tag according to the level the header appears in. Top level headers should use <h1>. Headers one level lower should use <h2>. And so on. The appearance of the headers can always be changed later.
+
+By way of reassurance, so that you know that you can really change the text enclosed in header tags so that they appear in any way you want, take a look at thefreecountry.com's pages, for example, the Budget Web Hosting page. The words at the top "Budget Web Hosts (Page 1)" are actually enclosed in <h1></h1> tags. They are orange on a purple background because I added CSS rules to specify that colour ("color" if you use a different variant of English) combination for that set of header tags. The words underneath, "Cheap, affordable, commercial web hosts", were simply enclosed in <h2></h2> tags. No special HTML tags were used for those effects.
+
+To reiterate, choose the appropriate header tags for your titles according to the function those titles play on your page, not according to the appearance those tags currently confer. The appearance can be changed later, using CSS.
+
+Emphasizing Text: Putting Text in Bold or Italics
+There are occasions where you may want to emphasize a particular word or group of words on your web page. Emphasis can be achieved using one of the following HTML tags:
+
+The <em></em> tag
+The <em></em> tag pair tells browsers that any enclosed text is to be emphasized in some way. As far as I know, all browsers display such text in italics. Note that the tag doesn't say that the text has to be in italics. It just tells browsers that it has to be emphasized. However, it seems that all major browser vendors render (ie, display) such text in italics.
+
+The <strong></strong> tag
+The <strong></strong> tag pair tells browsers that the sandwiched text is to be strongly emphasized. Web browsers today (as far as I know) display such text in bold. Again, this display of text in bold by web browsers is just a practice that the browser vendors adopted. The tags themselves do not mean "bold" or anything like that.
+
+There are, however, some things you should note about the use of these tags.
+
+Do not use them for stylistic purposes
+Do not use these tags for the purpose of changing the appearance of words so that they look prettier on your web page. For example, don't put text in these tags just so that you can get the higher numbered header tags like <h6></h6> to be displayed in bold. As I mentioned before, things that pertain to the appearance of your web page should be modified using CSS, not by choosing HTML tags that happen to cause your text to take on a certain appearance.
+
+Use the tags only if you really want certain things emphasized. For example, I put the words "not" in the first line of the paragraph above in <strong></strong> to draw attention to it. The principle to learn here is that you should use HTML tags for the function those tags suggest. Appearance changes for the sake of making the web page look good are to be done in CSS. Be patient. We'll get to dealing with CSS eventually. You need to learn HTML first because CSS assumes a prior knowledge of HTML.
+
+Do not put block level tags within these tags
+If you have an entire paragraph that you want to emphasize, for example, to give a warning about the consequences of taking some action, you should always put your <strong></strong> and/or <em></em> tags inside your paragraph tags.
+
+For example, the following code illustrates the correct use of these tags.
+
+<p>
+<strong>The "strong" tag is placed within the "p" tag in this example.
+This is as it should be.</strong>
+</p>
+The code below is incorrect, because it places paragraph tags inside the <strong></strong> tags.
+
+<strong><p>This code is invalid. Do NOT use it!</p></strong>
+The <strong></strong> and <em></em> tags are inline tags. The <p></p> tags are block tags. Block tags can contain any number of inline tags, but inline tags cannot contain a block tag.
+
+How to Insert Angle Brackets and Other Special Characters
+Since angle brackets like "<" and ">" are used to flag the start and end of HTML tags, you might be wondering how you can actually insert such characters into your web page without the web browser mistaking it for a tag. For example, how do you insert the "less than" sign in a mathematical expression like "x < 5"?
+
+To insert a left angle bracket, "<", you have to type "&lt;" (without the quotes) into your web page. A right angle bracket, ">", is inserted by typing "&gt;" (without the quotes) into your web page.
+
+Like the angle brackets, the ampersand, "&", is a special character treated differently from other characters by all web browsers. It flags the start of a sequence of characters known in the HTML standard as a character entity reference. The most commonly used character entity references are as follows:
+
+&lt; for "<"
+&gt; for ">"
+&amp; for "&" (see below)
+&nbsp; for the space character (see below)
+&copy; for the copyright symbol "©"
+&trade; for the trademark character, such as in "thesitewizard™"
+As you may have guessed, once we defined the ampersand ("&") as a special character that begins a character entity reference, we need a way to tell the web browser when we really need an ampersand, hence the creation of another new character entity reference, "&amp;", to represent the ampersand itself. In other words, when you need to type an ampersand on your web page, don't type "&". Type "&amp;" (without the quotes).
+
+The "&nbsp;" character entity reference represents a non-breaking space. As I'm sure you've noticed when you carried out your experiments in chapter 1, when you put a space between 2 words in your web page, the browser may wrap the second word onto a new line if it runs out of space on the current line. If you have a pair of words that must always be placed together on the same line, put "&nbsp;" (without the quotes) between those 2 words instead of the normal space character to force the browser to always keep those two words together. This character entity reference is also useful when you need to put more than 1 space between two words. Again, as you found out in chapter 1, whenever you put more than one space character between two words, web browsers will remove the additional space characters from the output so that you always end up with only one space displayed. If you really need the extra space characters for whatever reason, you will need to insert a "&nbsp;" for every space character you want displayed, instead of multiple space characters.
+
+Other (Less Used) HTML Tags for Presenting Text
+There are other HTML tags pertaining to text that can be used in your web documents. Most webmasters don't use them, but here are a few that you may (or may not) find useful.
+
+Displaying snippets of computer code: the <code> tag
+The <code></code> tags are used when you want to display some computer code. I use these tags a lot in this HTML tutorial series for my HTML tags. For example, the words "<code></code>" in this sentence is sandwiched between the <code></code> tags. As you can see, web browsers typically display such text in a monospaced (fixed pitch) font.
+
+Quoting someone: the <blockquote> and <q> tags
+If you're quoting someone, you can place that quote inside either <blockquote></blockquote> or <q></q> tags. Use <blockquote> if you're quoting a paragraph or more of text, and <q> if you're just quoting a short phrase in the middle of your sentence. In more technical lingo, <blockquote> is a block tag that can include paragraph tags within its opening and closing tags, while <q> is an inline tag (like <strong> and <em>) that cannot enclose block level tags.
+
+You can see an example of the <blockquote> tag in action in the article 4 Things to Be Aware of When Writing English Content for an International Audience. The quote from Oscar Wilde at the beginning of that article is placed within a <blockquote></blockquote> tag pair. As you can see, web browsers typically indent the content marked up (ie, tagged) in this way.
+
+Superscripts and subscripts: the <sup> and <sub> tags
+If you need superscripts to flag a footnote or to represent expressions like e=mc2, use the <sup></sup> pair to enclose the text you want raised. Subscripts like the "2" in CO2 are produced by placing the character or characters between <sub> and </sub>.
+
+Both <sup> and <sub> are inline tags.
+
+Preformatted text: the <pre> tag
+If you enclose a block of text using the <pre></pre> tags, you're telling the browser that your text is already in a formatted state. Most (if not all) browsers will preserve the formatting of your text as-is, leaving in all your white spaces and new lines exactly as you entered them. Browsers also typically do not wrap lines that are too long to fit into the width of the browser window. Note though that browsers are not required to exhibit this behaviour ("behavior" in certain variants of English), but the ones that I have tested do. Your text is also usually displayed using a monospaced font.
+
+This tag pair is often used to display computer programming source code, where formatting is important. It's best not to abuse it for the use of your normal paragraphs of text.
+
+The <pre> is a block level tag.
+
+Indicating deleted text: the <del> tag
+If you want to indicate that a certain word, phrase or sentence is no longer relevant, you can enclose it between the <del></del> tag pair. For example, this word "deleted" has been marked up using the <del></del> tag pair. As you can see, web browsers typically strike out the word or words tagged in this way.
+
+There are a few other HTML tags that are rarely used by webmasters. They are listed below for completeness' sake, although I doubt most of you will ever use them.
+
+Citations: <cite></cite>
+Use this to include a reference to your source.
+
+Definition: <dfn></dfn>
+If you're defining some term or other, you can mark up your definition with this tag.
+
+Acronym: <acronym></acronym>
+You can use this tag for the acronyms used on your page. Webmasters using this tag usually add a "title" attribute to the tag to elaborate on what the acronym means. For example, the acronym "scuba" in this sentence has been marked up as <acronym title="Self-contained underwater breathing apparatus">scuba</acronym>. Attributes will be taught in a later chapter in this tutorial.
+
+Abbreviations: <abbr></abbr>
+Those with a love for abbreviations can use this tag to mark them up on your page. Like the acronym tag, people using this tag typically add the optional "title" attribute to expand the abbreviation. For example, the abbreviation "HTML" in this sentence has been marked up as <abbr title="Hypertext Markup Language">HTML</abbr>. As mentioned earlier, I will deal with attributes in a later chapter.
+
+Sample output: <samp></samp>
+Sample output from a computer program can be placed within the <samp></samp> tag pair.
+
+Keyboard input: <kbd></kbd>
+If you're indicating that something is to be typed on the keyboard, mark it up with this tag.
+
+Variable (for computer programmers): <var></var>
+If you're a computer programmer discussing the source code of a computer program on your web page, it's possible to mark your variables up using this tag.
+
+Document changes: <ins></ins>
+This tag is the counterpart to the <del> tag mentioned earlier. While the <del> tag indicates text that have been deleted, the <ins> tag indicates new words, phrases or sentences that have been inserted.
+
+After looking through the list, some of you are probably thinking, "But Chris, what does the browser show when I use these tags?" A simple way to find out is to try it out on your web page and load it in your browser to see the results. However, I would suggest that the question actually misses the point of these tags. HTML tags are meant to describe the type of content you're typing on your page. They are not meant to prescribe appearance. Appearance on a web page is not meant to be controlled by HTML tags, but by Cascading Style Sheets, or CSS. You can cause those HTML tags to make your text take on any appearance you like with CSS. Its default appearance is not really relevant. (For the curious but lazy reader: some of the above tags simply put the text in a monospace (fixed pitch) font, while others don't change the appearance of your text at all.)
+
+Do you have to memorise all these tags so that if you happen to use things like abbreviations, you can remember to tag them appropriately? In practice, few webmasters bother. For example, words like "HTML" and "CSS" are used liberally throughout thesitewizard.com, but I don't recall tagging even a single instance of them with the <abbr></abbr> tag pair (other than in the example above). In fact, it's quite possible to get by without knowing any of the tags mentioned in this entire subsection. Of course if you want all your abbreviations to be displayed in (say) brown, then it's simplest to just tag them all and create a CSS rule that tells the browser to display all abbreviations in brown.
+
+How About Fonts and Other Snazzy Design Features?
+For those of you holding your breath, waiting for me to finally get round to talking about how you can change the fonts on your web page, you'll have to wait a bit longer. Font changes are considered as one of the things that govern the appearance of your web page, and are thus done using Cascading Style Sheets, not HTML. Although there are ways to change fonts using HTML, those methods are deprecated, which, in the world of computers, basically means that they are outdated, and will eventually be removed from the standard.
+
+As such, we'll talk about fonts when we get to the CSS part of this tutorial series.
+
+Do Not Interweave Different Tags
+Now that you know enough to cause problems, it's important that you learn an important rule in writing HTML code, otherwise you'll end up creating invalid HTML.
+
+The easiest way to explain this rule is to use an example. Consider the following HTML code snippet.
+
+<p>
+<strong><em>thesitewizard.com</em></strong> is a tutorial website for webmasters.
+</p>
+Notice that "thesitewizard.com" is enclosed within both <strong> and <em> tags. As such, in most (or all) browsers, that word will be displayed in both bold and italics. Observe carefully the order of the opening and closing tags. The innermost starting tag (that is, the tag closest to "thesitewizard.com") is <em>. It is matched by the innermost closing tag of </em>. Just outside that pair of tags is the <strong></strong> tag pair. The opening <strong> tag is matched by the closing </strong> tag on the same (outer) level.
+
+Now look at the following invalid HTML code.
+
+<p>
+This code has <strong><em>errors</strong></em>! Can you spot the problem?
+</p>
+The innermost <em> tag is not matched by an innermost closing </em> tag. Instead, the web browser parsing that sentence encounters an unexpected </strong> tag. Although you might think that you managed to get all the closing tags into your web page, the opening and closing tags are not really at the same level. The mixing up of opening and closing tags in random order causes the code to be invalid. It's like writing a mathematical expression with the following bracket structure:
+
+{[(2+5] X [7-8}) + 1]
+Even if you assume that any type of bracket can be used for a mathematical expression, the above expression still makes no sense because the brackets are all jumbled up instead of matching each other at the correct level. In the same way, the HTML code with opening and closing tags jumbled up in a mess also makes no sense.
+
+Note that just because web browsers are often able to decipher the mess that some webmasters create with interwoven opening and closing tags of different types doesn't mean that such code is valid. Remember that browsers are not required to parse and display invalid code in the way you want. They cannot be expected to read your mind, after all. Do not depend on browsers to be telepathic. For all you know, it may be a bug in the browser that caused it to display the bad code in the way you think it should be displayed. When that bug is fixed (and browser vendors fix bugs in their browsers all the time), your web page will no longer appear in the way you intended it.
+
+But how do you spot errors on your web page? After all, it's not like you deliberately set out to create an invalid page. Obviously, if you made an error, it must have been through either ignorance or carelessness. As such, they may be very hard to spot, especially if you don't even know they were errors in the first place. This is the topic of the next section.
+
+How to Check Your Web Page for Errors: Validating Your Code
+The easiest way to get your HTML code checked is to run it through something known as a validator. An HTML validator is a computer program that looks at your web pages for errors that violate the HTML standard. It will spot things like the jumbled tags that I mentioned above, as well as other types of errors. There are many free HTML validators around, some of which you can download and install on your computer, others where you can access only when you're connected to the Internet.
+
+Note that HTML validators only check for HTML errors. They will not check your English spelling, your English grammar, or whether your page looks nice. They merely check if you have things like an opening HTML tag without a matching closing HTML tag, non-existent HTML tags (something that happens when you make a spelling error in your tag, such as using a "strnog" tag when you mean a "strong" tag), and other things that will cause your HTML structure not to conform to the HTML rules.
+
+For now, open a browser window to the W3 Consortium's HTML Validator. This validator gives you 3 ways to check your web page for errors.
+
+If you have already uploaded your web page to your website, you can simply type the URL to your page into the "Address" field of the validator for it to check. Click the "Check" button when you're done.
+
+Otherwise, if you have not yet published your web page to the Internet (as is probably the case for the majority of you), look for the words "Validate by File Upload" somewhere near the top of the page and click it. Click the "Choose..." button next to the "File" field. A dialog box should appear. This dialog box shows you the files on your computer. Navigate to the HTML file that you've been working on, select it and click "Open" (or "OK" or whatever the button on your dialog box says; the exact words depend on your web browser and your operating system). The complete file path of your web page should appear in the "File" field. ("File path" here means the file name, folder and drive [if you use Windows] of a particular file.) Click the "Check" button when you're done. Your browser will upload your file to the validator for checking.
+
+Another way to get your page checked is to click the "Validate by Direct Input" words at the top of the validator page. You can then copy and paste your entire HTML page into the box and click the "Check" button to get the page checked.
+
+(If you can't decide, and you haven't uploaded your page to your web host yet, just use the "Validate by File Upload" option. If you have already published your web page, it's probably easiest to use "Validate by URI".)
+
+If your page has no errors, the validator should say something like "The document was successfully checked as HTML 4.01 Transitional!" followed by a line that gives the results, such as "Result: Passed". Otherwise, the results line will tell you the number of errors and warnings your page produced. In such a case, scroll down the results page to read more about the errors the validator found on your page. The detailed information gives you the exact line number (and column number) of the error in your page along with a description of what the error is.
+
+Incidentally, if you used the "Validate by Direct Input", you will always get one warning telling you that the validator assumed that your page uses "UTF-8" as the character encoding. Since you copied and pasted your code directly into the validator using this method, and the validator's page itself uses UTF-8 for its character encoding, your copied-and-pasted text will always end up using UTF-8 whether or not your real page actually uses this encoding. (The browser transparently converts your text into UTF-8 as specified by the validator's own UTF-8 encoded page.) If this bothers you because you think it may mask an error on your page, just use the "Validate by File Upload" or "Validate by URI" options instead.
+
+Next Chapter
+In the next chapter, we will deal with how you can create bullet point lists as well as numbered lists.
+
+Copyright © 2011-2019 Christopher Heng. All rights reserved.
+Get more free tips and articles like this, on web design, promotion, revenue and scripting, from https://www.thesitewizard.com/.
+
+You are here:
+
+Top » HTML Tutorials »
+
+HTML Tutorial - Learn to Design a Website using HTML (Chapter 1)
+The HTML Tags that Deal with Text (HTML Tutorial Chapter 2)
+How to Create Automatically Numbered Lists, Bullet Point Lists and Definition Lists in HTML (Chapter 3)
+Other articles on: HTML, CSS, Getting Started
+
+thesitewizard™ News Feed (RSS Site Feed)  Subscribe to thesitewizard.com newsfeed
+Do you find this article useful? You can learn of new articles and scripts that are published on thesitewizard.com by subscribing to the RSS feed. Simply point your RSS feed reader or a browser that supports RSS feeds at https://www.thesitewizard.com/thesitewizard.xml. You can read more about how to subscribe to RSS site feeds from my RSS FAQ.
+
+Please Do Not Reprint This Article
+This article is copyrighted. Please do not reproduce or distribute this article in whole or part, in any form.
+
+Related Pages
+Important Precautions to Take When Buying a Domain Name
+How Much Does It Cost to Set Up a Website?
+Should You Choose a Linux or a Windows Web Hosting Package? Is There Such a Thing as a Mac Web Host?
+How to Rescue Your Website from the Clutches of a Bad Web Designer or Bad Web Host
+How to Design a Two Column Layout for Your Website Using CSS
+How to Centre a DIV Block Using CSS
+Preventing Image Bandwidth Theft With .htaccess
+Which Web Host Do You Recommend? (FAQ)
+New Articles
+How to Restore the Style Properties Panel in BlueGriffon if It Disappears
+How to Use Small Capital Letters for Lowercase and Large Capital Letters for Uppercase (CSS)
+How to Change the Colour (Color) of Links on a Website with Expression Web
+Why Can't I Make Up Any Domain I Want? Is There a Way to Do Away with a Registrar Altogether?
+How to Prevent Two or More Words from Being Split into Separate Lines (HTML/CSS)
+How to Add an Audio or Music File to a Web Page with BlueGriffon
+Can I Change My Website's Address to HTTPS Without Getting an SSL Certificate?
+What's the Difference Between a Domain Name Registrar and a Web Host?
+How to Make a Mobile-Friendly Website: Responsive Design in CSS
+What's the Difference Between a Content Management System (CMS), a Blog, a Web Editor and an Online Site Builder?
+Popular Articles
+How to Create a Blog
+How to Make / Create a Website: The Beginner's A-Z Guide
+Tips on Choosing a Good Domain Name
+Expression Web Tutorial: How to Design a Website with Microsoft Expression Web
+Dreamweaver Tutorial: How to Design a Website with Dreamweaver CS6
+BlueGriffon Tutorial: How to Design a Website with BlueGriffon 3
+How to Design and Publish Your Website with KompoZer (free WYSIWYG web editor)
+Free Feedback/Contact Form Wizard
+How to Link to This Page
