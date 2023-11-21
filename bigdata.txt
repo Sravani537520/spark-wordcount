@@ -5,8 +5,7 @@ In this chapter of the HTML tutorial series, we will learn more about the HTML t
 If you have only just arrived at this site with the intention of learning HTML, please start at the first chapter of the tutorial. (This article you're looking at is actually chapter 2.) Those who do not know anything about creating websites should read How to Make / Create Your Own Website: The Beginner's A-Z Guide before anything else.
 
 Language and Your Website: Character Encoding, Character Sets and Content Type
-When you type some text characters into a file on your computer (any file, including things like HTML files), the characters are not saved as letters of the alphabet in the file but as a series of numbers. (It's actually more technical than that, if we go down to the electronic level, but the above loose description will do for our purposes.) For example, if you type the letter "a" into a plain text file, your editor actually saves the number 97 into the file. When you display that file, the text editor or web browser (or any other program) reads the number and interprets it as "a" and displays it as such.
-
+When you type some text characters into a file on your computer (any file, including things like HTML files), the characters are not saved as letters of the alphabet in the file but as a series of numbers. (It's actually more technical than that, if we go down to the electronic level, but the above loose description will do for our purposes.) For example, if you type the letter "a" into a plain text file, your editor actually saves the number 97 into the file. When you display that file, the text editor or web browser (or any other program) reads the number and interprets it as "a" and displays it as.
 The problem is that 97 does not intrinsically mean "a" or any other thing on a computer. It means "a" only if the program reading it expects a text file using a particular language, encoded using a specific system that is pre-agreed by everyone in the computer world. In this system, 97 happens to mean the small letter (lowercase) "a". In a different system (or different character set in technical lingo), 97 may mean some other letter of some other alphabet.
 
 Since a web page can contain any language in the world, encoded using any character set, a web browser needs to know both the language your page uses as well as the character set it is using in order for it to display the text correctly.
@@ -140,8 +139,8 @@ Like the angle brackets, the ampersand, "&", is a special character treated diff
 &gt; for ">"
 &amp; for "&" (see below)
 &nbsp; for the space character (see below)
-&copy; for the copyright symbol "©"
-&trade; for the trademark character, such as in "thesitewizard™"
+&copy; for the copyright symbol "ï¿½"
+&trade; for the trademark character, such as in "thesitewizardï¿½"
 As you may have guessed, once we defined the ampersand ("&") as a special character that begins a character entity reference, we need a way to tell the web browser when we really need an ampersand, hence the creation of another new character entity reference, "&amp;", to represent the ampersand itself. In other words, when you need to type an ampersand on your web page, don't type "&". Type "&amp;" (without the quotes).
 
 The "&nbsp;" character entity reference represents a non-breaking space. As I'm sure you've noticed when you carried out your experiments in chapter 1, when you put a space between 2 words in your web page, the browser may wrap the second word onto a new line if it runs out of space on the current line. If you have a pair of words that must always be placed together on the same line, put "&nbsp;" (without the quotes) between those 2 words instead of the normal space character to force the browser to always keep those two words together. This character entity reference is also useful when you need to put more than 1 space between two words. Again, as you found out in chapter 1, whenever you put more than one space character between two words, web browsers will remove the additional space characters from the output so that you always end up with only one space displayed. If you really need the extra space characters for whatever reason, you will need to insert a "&nbsp;" for every space character you want displayed, instead of multiple space characters.
@@ -253,19 +252,19 @@ Incidentally, if you used the "Validate by Direct Input", you will always get on
 Next Chapter
 In the next chapter, we will deal with how you can create bullet point lists as well as numbered lists.
 
-Copyright © 2011-2019 Christopher Heng. All rights reserved.
+Copyright ï¿½ 2011-2019 Christopher Heng. All rights reserved.
 Get more free tips and articles like this, on web design, promotion, revenue and scripting, from https://www.thesitewizard.com/.
 
 You are here:
 
-Top » HTML Tutorials »
+Top ï¿½ HTML Tutorials ï¿½
 
 HTML Tutorial - Learn to Design a Website using HTML (Chapter 1)
 The HTML Tags that Deal with Text (HTML Tutorial Chapter 2)
 How to Create Automatically Numbered Lists, Bullet Point Lists and Definition Lists in HTML (Chapter 3)
 Other articles on: HTML, CSS, Getting Started
 
-thesitewizard™ News Feed (RSS Site Feed)  Subscribe to thesitewizard.com newsfeed
+thesitewizardï¿½ News Feed (RSS Site Feed)  Subscribe to thesitewizard.com newsfeed
 Do you find this article useful? You can learn of new articles and scripts that are published on thesitewizard.com by subscribing to the RSS feed. Simply point your RSS feed reader or a browser that supports RSS feeds at https://www.thesitewizard.com/thesitewizard.xml. You can read more about how to subscribe to RSS site feeds from my RSS FAQ.
 
 Please Do Not Reprint This Article
